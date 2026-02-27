@@ -12,16 +12,16 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-50/90 dark:bg-zinc-950/90 backdrop-blur-sm border-b border-zinc-200 dark:border-zinc-800 transition-colors">
       {/* Top Banner */}
-      <div className="bg-black dark:bg-neon-lime text-white dark:text-black text-[10px] md:text-xs py-2 text-center font-medium tracking-wide transition-colors">
+      <div className="bg-black dark:bg-neon-lime text-white dark:text-black text-[9px] md:text-xs py-1.5 md:py-2 text-center font-medium tracking-wide transition-colors">
         DESIGNED BY MC
       </div>
 
-      <div className="max-w-[1920px] mx-auto px-6 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-4 md:gap-8">
-          <a href="#" className="text-xl md:text-2xl font-bold tracking-tighter text-black dark:text-white uppercase border-r border-zinc-300 dark:border-zinc-700 pr-6 h-8 flex items-center">
+      <div className="max-w-[1920px] mx-auto px-4 sm:px-6 h-14 md:h-16 flex items-center justify-between">
+        <div className="flex items-center gap-3 md:gap-8">
+          <a href="#" className="text-lg md:text-2xl font-bold tracking-tighter text-black dark:text-white uppercase border-r border-zinc-300 dark:border-zinc-700 pr-3 md:pr-6 h-8 flex items-center">
             Weavy
           </a>
-          <span className="text-[10px] md:text-xs font-medium tracking-widest text-zinc-500 dark:text-zinc-400 uppercase leading-tight max-w-[100px]">
+          <span className="text-[9px] md:text-xs font-medium tracking-widest text-zinc-500 dark:text-zinc-400 uppercase leading-tight max-w-[80px] md:max-w-[100px]">
             Artistic Intelligence
           </span>
         </div>
@@ -50,7 +50,7 @@ export function Navbar() {
         <div className="flex md:hidden items-center gap-2">
           <ThemeToggle />
           <button
-            className="text-black dark:text-white p-2 -mr-2"
+            className="text-black dark:text-white p-2 -mr-2 active:bg-zinc-200 dark:active:bg-zinc-800 rounded-lg transition-colors"
             onClick={toggleMenu}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
@@ -66,20 +66,20 @@ export function Navbar() {
         data-open={isOpen}
       >
         <div>
-          <div className="flex flex-col p-6 gap-4">
-            <a href="#features" className="text-sm font-medium text-zinc-900 dark:text-zinc-100 uppercase tracking-wider py-2" onClick={closeMenu}>
+          <div className="flex flex-col p-4 sm:p-6 gap-1">
+            <a href="#features" className="text-sm font-medium text-zinc-900 dark:text-zinc-100 uppercase tracking-wider py-3 px-3 rounded-lg active:bg-zinc-100 dark:active:bg-zinc-900 transition-colors" onClick={closeMenu}>
               Features
             </a>
-            <a href="#solutions" className="text-sm font-medium text-zinc-900 dark:text-zinc-100 uppercase tracking-wider py-2" onClick={closeMenu}>
+            <a href="#solutions" className="text-sm font-medium text-zinc-900 dark:text-zinc-100 uppercase tracking-wider py-3 px-3 rounded-lg active:bg-zinc-100 dark:active:bg-zinc-900 transition-colors" onClick={closeMenu}>
               Solutions
             </a>
-            <a href="#testimonials" className="text-sm font-medium text-zinc-900 dark:text-zinc-100 uppercase tracking-wider py-2" onClick={closeMenu}>
+            <a href="#testimonials" className="text-sm font-medium text-zinc-900 dark:text-zinc-100 uppercase tracking-wider py-3 px-3 rounded-lg active:bg-zinc-100 dark:active:bg-zinc-900 transition-colors" onClick={closeMenu}>
               Testimonials
             </a>
-            <a href="#contact" className="text-sm font-medium text-zinc-900 dark:text-zinc-100 uppercase tracking-wider py-2" onClick={closeMenu}>
+            <a href="#contact" className="text-sm font-medium text-zinc-900 dark:text-zinc-100 uppercase tracking-wider py-3 px-3 rounded-lg active:bg-zinc-100 dark:active:bg-zinc-900 transition-colors" onClick={closeMenu}>
               Contact
             </a>
-            <Button className="w-full bg-black dark:bg-neon-lime text-white dark:text-black hover:bg-zinc-800 font-bold rounded-lg h-12 transition-colors">
+            <Button className="w-full mt-2 bg-black dark:bg-neon-lime text-white dark:text-black hover:bg-zinc-800 font-bold rounded-xl h-12 transition-colors">
               Get Started
             </Button>
           </div>

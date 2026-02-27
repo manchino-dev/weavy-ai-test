@@ -4,6 +4,32 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Scrollbar-hide utility (mobile pipeline pills) ── */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ── Mobile menu slide animation ── */
+.mobile-menu-grid {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 250ms ease;
+}
+
+.mobile-menu-grid[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.mobile-menu-grid>div {
+  overflow: hidden;
 }
 
 @theme {

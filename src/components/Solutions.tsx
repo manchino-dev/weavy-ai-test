@@ -12,22 +12,22 @@ const solutions = [
 
 export function Solutions() {
   return (
-    <section id="solutions" className="py-32 bg-zinc-100/50 dark:bg-zinc-900/50 transition-colors">
-      <div className="max-w-[1920px] mx-auto px-6">
+    <section id="solutions" className="py-20 md:py-32 bg-zinc-100/50 dark:bg-zinc-900/50 transition-colors">
+      <div className="max-w-[1920px] mx-auto px-4 sm:px-6">
         <m.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ once: true, margin: "-80px" }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
-          <h2 className="text-4xl md:text-6xl font-medium tracking-tighter mb-6 text-black dark:text-white">
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-medium tracking-tighter mb-4 md:mb-6 text-black dark:text-white">
             Solutions for every <br />
             <span className="text-zinc-600 dark:text-zinc-500">creative challenge.</span>
           </h2>
         </m.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {solutions.map((solution, index) => (
             <m.div
               key={solution.title}
@@ -35,7 +35,7 @@ export function Solutions() {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.06, ease: "easeOut" }}
               viewport={{ once: true, margin: "-50px" }}
-              className="group relative p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-black/20 dark:hover:border-neon-lime/30 active:border-black/20 hover:shadow-xl active:shadow-xl transition-all hover:-translate-y-1 active:-translate-y-1 overflow-hidden will-change-transform"
+              className="group relative p-6 md:p-10 rounded-2xl md:rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-black/20 dark:hover:border-neon-lime/30 active:border-black/20 hover:shadow-xl active:shadow-xl transition-all hover:-translate-y-1 active:-translate-y-1 overflow-hidden will-change-transform"
             >
               <div className="absolute inset-0 z-0 opacity-75 grayscale group-hover:opacity-100 group-active:opacity-100 group-hover:grayscale-0 group-active:grayscale-0 transition-all duration-500">
                 <img src={solution.img} alt="" width={800} height={600} loading="lazy" decoding="async" className="w-full h-full object-cover" />
@@ -46,12 +46,12 @@ export function Solutions() {
                 <m.div
                   whileHover={{ scale: 1.1, filter: "drop-shadow(0 10px 8px rgb(0 0 0 / 0.1))" }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  className="mb-8 inline-block"
+                  className="mb-4 md:mb-8 inline-block"
                 >
-                  <solution.icon className="w-12 h-12 text-black dark:text-neon-lime" />
+                  <solution.icon className="w-8 h-8 md:w-12 md:h-12 text-black dark:text-neon-lime" />
                 </m.div>
-                <h3 className="text-2xl font-bold mb-4 text-black dark:text-white">{solution.title}</h3>
-                <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed">{solution.description}</p>
+                <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-4 text-black dark:text-white">{solution.title}</h3>
+                <p className="text-sm md:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">{solution.description}</p>
               </div>
             </m.div>
           ))}

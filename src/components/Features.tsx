@@ -10,22 +10,22 @@ const features = [
 
 export function Features() {
   return (
-    <section id="features" className="py-32 bg-zinc-50 dark:bg-zinc-950 relative transition-colors">
-      <div className="max-w-[1920px] mx-auto px-6">
+    <section id="features" className="py-20 md:py-32 bg-zinc-50 dark:bg-zinc-950 relative transition-colors">
+      <div className="max-w-[1920px] mx-auto px-4 sm:px-6">
         <m.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ once: true, margin: "-80px" }}
-          className="mb-20"
+          className="mb-12 md:mb-20"
         >
-          <h2 className="text-4xl md:text-6xl font-medium tracking-tighter mb-6 text-black dark:text-white">
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-medium tracking-tighter mb-4 md:mb-6 text-black dark:text-white">
             Everything you need <br />
             <span className="text-zinc-600 dark:text-zinc-500">to build faster.</span>
           </h2>
         </m.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {features.map((feature, index) => (
             <m.div
               key={feature.title}
@@ -33,7 +33,7 @@ export function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
               viewport={{ once: true, margin: "-50px" }}
-              className="group relative p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-black/20 dark:hover:border-neon-lime/30 active:border-black/20 hover:shadow-lg active:shadow-lg transition-all duration-200 overflow-hidden will-change-transform"
+              className="group relative p-6 md:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-black/20 dark:hover:border-neon-lime/30 active:border-black/20 hover:shadow-lg active:shadow-lg transition-all duration-200 overflow-hidden will-change-transform"
             >
               {/* Background Image */}
               <div className="absolute inset-0 z-0 opacity-75 grayscale group-hover:opacity-100 group-active:opacity-100 group-hover:grayscale-0 group-active:grayscale-0 transition-all duration-500">
@@ -53,12 +53,12 @@ export function Features() {
                 <m.div
                   whileHover={{ y: [0, -8, 0] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-12 h-12 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center mb-6 group-hover:bg-neon-yellow dark:group-hover:bg-neon-lime group-hover:text-black group-active:bg-neon-yellow dark:group-active:bg-neon-lime group-active:text-black transition-colors shadow-sm group-hover:shadow-md"
+                  className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center mb-4 md:mb-6 group-hover:bg-neon-yellow dark:group-hover:bg-neon-lime group-hover:text-black group-active:bg-neon-yellow dark:group-active:bg-neon-lime group-active:text-black transition-colors shadow-sm group-hover:shadow-md"
                 >
-                  <feature.icon className="w-6 h-6 text-black dark:text-zinc-100" />
+                  <feature.icon className="w-5 h-5 md:w-6 md:h-6 text-black dark:text-zinc-100" />
                 </m.div>
-                <h3 className="text-xl font-bold mb-3 text-black dark:text-white">{feature.title}</h3>
-                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-black dark:text-white">{feature.title}</h3>
+                <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   {feature.description}
                 </p>
               </div>
