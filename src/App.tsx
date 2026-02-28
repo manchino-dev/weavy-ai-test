@@ -1,17 +1,28 @@
 import React, { Suspense } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { LogoTicker } from "@/components/LogoTicker";
 import { Features } from "@/components/Features";
-import { Solutions } from "@/components/Solutions";
-import { Testimonials } from "@/components/Testimonials";
-import { ContactForm } from "@/components/ContactForm";
-import { Footer } from "@/components/Footer";
 
 // Lazy-load heavy components that are below the fold
+const Solutions = React.lazy(() => import("@/components/Solutions").then(m => ({ default: m.Solutions })));
+const Testimonials = React.lazy(() => import("@/components/Testimonials").then(m => ({ default: m.Testimonials })));
+const ContactForm = React.lazy(() => import("@/components/ContactForm").then(m => ({ default: m.ContactForm })));
+const LogoTicker = React.lazy(() => import("@/components/LogoTicker").then(m => ({ default: m.LogoTicker })));
 const NodePlayground = React.lazy(() =>
   import("@/components/NodePlayground").then((m) => ({ default: m.NodePlayground }))
 );
+
+function SectionFallback({ text = "Loading…" }: { text?: string }) {
+  return (
+    <section className="py-20 bg-zinc-50 dark:bg-zinc-950 transition-colors">
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="h-64 rounded-3xl bg-zinc-100 dark:bg-zinc-900 animate-pulse flex items-center justify-center">
+          <p className="text-zinc-400 dark:text-zinc-600 text-sm">{text}</p>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function NodePlaygroundFallback() {
   return (
@@ -32,15 +43,31 @@ export default function App() {
       <main>
         <Hero />
         <Features />
-        <Solutions />
+
+        <Suspense fallback={<SectionFallback text="Loading solutions…" />}>
+          <Solutions />
+        </Suspense>
+
         <Suspense fallback={<NodePlaygroundFallback />}>
           <NodePlayground />
         </Suspense>
-        <Testimonials />
-        <ContactForm />
-        <LogoTicker />
+
+        <Suspense fallback={<SectionFallback text="Loading testimonials…" />}>
+          <Testimonials />
+        </Suspense>
+
+        <Suspense fallback={<SectionFallback text="Loading form…" />}>
+          <ContactForm />
+        </Suspense>
+
+        <Suspense fallback={<SectionFallback text="Loading partners…" />}>
+          <LogoTicker />
+        </Suspense>
       </main>
-      <Footer />
+
+      <Suspense fallback={<SectionFallback />}>
+        {React.createElement(React.lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer }))))}
+      </Suspense>
     </div>
   );
 }

@@ -7,13 +7,41 @@ export function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = useCallback((e: React.FormEvent) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+
+    // Build payload from form event
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    };
+
+    console.log("[ContactForm] Sending payload to API...", payload);
+
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+      console.log("[ContactForm] API Response:", data);
+
+      if (data.success) {
+        setIsSubmitted(true);
+      } else {
+        alert("Failed to submit. Check console for details.");
+      }
+    } catch (err) {
+      console.error("[ContactForm] API Error:", err);
+      alert("An error occurred. Check console for details.");
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 600);
+    }
   }, []);
 
   const handleReset = useCallback(() => setIsSubmitted(false), []);
@@ -58,9 +86,10 @@ export function ContactForm() {
                     <label htmlFor="name" className="text-sm font-medium text-zinc-700 dark:text-zinc-300 group-focus-within:text-black dark:group-focus-within:text-neon-lime transition-colors">Name</label>
                     <input
                       id="name"
+                      name="name"
                       type="text"
                       required
-                      className="w-full h-12 px-4 rounded-lg bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-neon-lime focus:ring-2 focus:ring-black/5 dark:focus:ring-neon-lime/20 transition-all placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-base"
+                      className="w-full h-12 px-4 rounded-lg bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-neon-lime focus:ring-[3px] focus:ring-black/50 dark:focus:ring-neon-lime/50 transition-all placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-base"
                       placeholder="Jane Doe"
                     />
                   </div>
@@ -68,9 +97,10 @@ export function ContactForm() {
                     <label htmlFor="email" className="text-sm font-medium text-zinc-700 dark:text-zinc-300 group-focus-within:text-black dark:group-focus-within:text-neon-lime transition-colors">Email</label>
                     <input
                       id="email"
+                      name="email"
                       type="email"
                       required
-                      className="w-full h-12 px-4 rounded-lg bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-neon-lime focus:ring-2 focus:ring-black/5 dark:focus:ring-neon-lime/20 transition-all placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-base"
+                      className="w-full h-12 px-4 rounded-lg bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-neon-lime focus:ring-[3px] focus:ring-black/50 dark:focus:ring-neon-lime/50 transition-all placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-base"
                       placeholder="jane@example.com"
                     />
                   </div>
@@ -80,15 +110,16 @@ export function ContactForm() {
                   <label htmlFor="message" className="text-sm font-medium text-zinc-700 dark:text-zinc-300 group-focus-within:text-black dark:group-focus-within:text-neon-lime transition-colors">Message (Optional)</label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={3}
-                    className="w-full p-4 rounded-lg bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-neon-lime focus:ring-2 focus:ring-black/5 dark:focus:ring-neon-lime/20 transition-all resize-none placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-base"
+                    className="w-full p-4 rounded-lg bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-neon-lime focus:ring-[3px] focus:ring-black/50 dark:focus:ring-neon-lime/50 transition-all resize-none placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-base"
                     placeholder="Tell us about your use case..."
                   />
                 </div>
 
                 <Button
                   disabled={isSubmitting}
-                  className="w-full h-12 md:h-14 text-base md:text-lg bg-black dark:bg-neon-lime text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-neon-lime/80 font-bold rounded-xl transition-all active:scale-[0.98]"
+                  className="w-full h-12 md:h-14 text-base md:text-lg bg-black dark:bg-neon-lime text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-neon-lime/80 font-bold rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-black/10 dark:shadow-neon-lime/10"
                 >
                   {isSubmitting ? (
                     <m.div

@@ -33,10 +33,10 @@ export function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
               viewport={{ once: true, margin: "-50px" }}
-              className="group relative p-6 md:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-black/20 dark:hover:border-neon-lime/30 active:border-black/20 hover:shadow-lg active:shadow-lg transition-all duration-200 overflow-hidden will-change-transform"
+              className="group relative p-6 md:p-8 rounded-2xl bg-card/70 backdrop-blur-xl border border-border hover:border-primary/20 dark:hover:border-neon-lime/30 active:border-primary/20 hover:shadow-2xl hover:shadow-black/5 active:shadow-2xl transition-all duration-300 overflow-hidden will-change-transform hover:-translate-y-1"
             >
               {/* Background Image */}
-              <div className="absolute inset-0 z-0 opacity-75 grayscale group-hover:opacity-100 group-active:opacity-100 group-hover:grayscale-0 group-active:grayscale-0 transition-all duration-500">
+              <div className="absolute inset-0 z-0 opacity-40 grayscale group-hover:opacity-80 group-active:opacity-80 group-hover:grayscale-[50%] group-active:grayscale-[50%] transition-all duration-500">
                 <img
                   src={feature.img}
                   alt=""
@@ -46,16 +46,16 @@ export function Features() {
                   decoding="async"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 via-white/80 dark:via-zinc-900/80 to-white/20 dark:to-zinc-900/20" />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/90 to-card/40" />
               </div>
 
               <div className="relative z-10">
                 <m.div
-                  whileHover={{ y: [0, -8, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center mb-4 md:mb-6 group-hover:bg-neon-yellow dark:group-hover:bg-neon-lime group-hover:text-black group-active:bg-neon-yellow dark:group-active:bg-neon-lime group-active:text-black transition-colors shadow-sm group-hover:shadow-md"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.2 }}
+                  className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-secondary flex items-center justify-center mb-4 md:mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors shadow-sm group-hover:shadow-md"
                 >
-                  <feature.icon className="w-5 h-5 md:w-6 md:h-6 text-black dark:text-zinc-100" />
+                  <feature.icon className="w-5 h-5 md:w-6 md:h-6 text-foreground group-hover:text-primary-foreground transition-colors" />
                 </m.div>
                 <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-black dark:text-white">{feature.title}</h3>
                 <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
