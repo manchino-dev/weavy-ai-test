@@ -13,6 +13,8 @@ const integrations = [
     { name: "Zoom", url: "https://raw.githubusercontent.com/pheralb/svgl/main/static/library/zoom.svg" },
 ];
 
+const tickerItems = [...integrations, ...integrations];
+
 export function IntegrationTicker() {
     return (
         <section className="py-8 bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 overflow-hidden transition-colors">
@@ -26,9 +28,9 @@ export function IntegrationTicker() {
 
                 <div className="relative flex-1 overflow-hidden mask-linear-fade">
                     <div className="integration-ticker-track flex items-center gap-16 py-2">
-                        {[...integrations, ...integrations, ...integrations].map((item, index) => (
+                        {tickerItems.map((item, index) => (
                             <div
-                                key={index}
+                                key={`${item.name}-${index}`}
                                 className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 shrink-0 opacity-80 hover:opacity-100 transition-all duration-300"
                             >
                                 <img
@@ -37,6 +39,8 @@ export function IntegrationTicker() {
                                     title={item.name}
                                     width={40}
                                     height={40}
+                                    loading="lazy"
+                                    decoding="async"
                                     className="max-w-full max-h-full object-contain"
                                 />
                             </div>

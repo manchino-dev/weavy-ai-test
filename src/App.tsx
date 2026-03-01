@@ -12,6 +12,7 @@ const IntegrationTicker = React.lazy(() => import("@/components/IntegrationTicke
 const NodePlayground = React.lazy(() =>
   import("@/components/NodePlayground").then((m) => ({ default: m.NodePlayground }))
 );
+const Footer = React.lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
 function SectionFallback({ text = "Loading…" }: { text?: string }) {
   return (
@@ -71,7 +72,7 @@ export default function App() {
       </main>
 
       <Suspense fallback={<SectionFallback />}>
-        {React.createElement(React.lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer }))))}
+        <Footer />
       </Suspense>
     </div>
   );

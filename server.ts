@@ -1,22 +1,9 @@
 import express from 'express';
 import { createServer as createViteServer } from 'vite';
-import { createClient } from '@supabase/supabase-js';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { z } from 'zod';
-import * as dotenv from 'dotenv';
-dotenv.config();
-
-const supabaseUrl = process.env.VITE_SUPABASE_URL || '';
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
-const supabase = createClient(supabaseUrl, supabaseKey);
-
-// 1. Zod Schema: Validates data shape and prevents NoSQL/Object injection
-const leadSchema = z.object({
-    name: z.string().min(2).max(100).trim(),
-    email: z.string().email().max(255).trim().toLowerCase(),
-    message: z.string().max(1000).optional(),
-});
+import { handleReset, handleLeadCapture, leadSchema } from './api/shared.js';
 
 async function startServer() {
     const app = express();
@@ -41,10 +28,9 @@ async function startServer() {
     app.post('/api/reset', async (req, res) => {
         try {
             console.log('RESET INITIATED: Clearing leads database table in Supabase');
-            const { error } = await supabase.from('leads').delete().neq('id', 0); // Delete all rows
-            if (error) throw error;
+            const result = await handleReset();
             console.log('RESET COMPLETE: Leads table is empty');
-            res.json({ success: true, message: 'Table cleared' });
+            res.json(result);
         } catch (error) {
             console.error('RESET FAILED', error);
             res.status(500).json({ success: false, error: String(error) });
@@ -57,16 +43,9 @@ async function startServer() {
             // 5. Schema Validation: Parse and sanitize the input
             const parsedData = leadSchema.parse(req.body);
             console.log(`[LEAD CAPTURE] Received - Name: ${parsedData.name}, Email: ${parsedData.email}`);
-
-            const { data, error } = await supabase
-                .from('leads')
-                .insert([parsedData])
-                .select();
-
-            if (error) throw error;
-
-            console.log('[LEAD CAPTURE] Successfully written to database:', data[0]);
-            res.json({ success: true, data: data[0] });
+            const result = await handleLeadCapture(parsedData);
+            console.log('[LEAD CAPTURE] Successfully written to database:', result.data);
+            res.json(result);
         } catch (error) {
             console.error('[LEAD CAPTURE] Error during insert:', error);
             // Catch Zod validation errors to safely respond without leaking backend details
