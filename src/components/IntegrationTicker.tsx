@@ -19,7 +19,7 @@ export function IntegrationTicker() {
             <div className="max-w-[1920px] mx-auto flex items-center gap-12 px-6">
                 <div className="flex items-center gap-2 shrink-0">
                     <div className="w-1.5 h-1.5 bg-blue-500 dark:bg-neon-lime rounded-full animate-pulse" />
-                    <p className="text-[10px] font-bold font-sans text-zinc-500 dark:text-zinc-500 uppercase tracking-widest whitespace-nowrap">
+                    <p className="text-[10px] font-bold font-sans text-zinc-600 dark:text-zinc-500 uppercase tracking-widest whitespace-nowrap">
                         Works in the apps you already use
                     </p>
                 </div>

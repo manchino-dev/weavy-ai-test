@@ -14,13 +14,13 @@ export function Footer() {
 
           <div className="grid grid-cols-2 col-span-1 sm:col-span-1 md:col-span-2 gap-6 md:gap-8">
             <div className="flex flex-col gap-3 md:gap-4">
-              <h4 className="text-xs font-bold uppercase tracking-widest text-black dark:text-zinc-200">Company</h4>
+              <h3 className="text-xs font-bold uppercase tracking-widest text-black dark:text-zinc-200">Company</h3>
               <a href="#" className="text-sm text-zinc-700 dark:text-zinc-400 hover:text-black dark:hover:text-neon-lime transition-colors">About</a>
               <a href="#" className="text-sm text-zinc-700 dark:text-zinc-400 hover:text-black dark:hover:text-neon-lime transition-colors">Contact</a>
               <a href="#" className="text-sm text-zinc-700 dark:text-zinc-400 hover:text-black dark:hover:text-neon-lime transition-colors">FAQ</a>
             </div>
             <div className="flex flex-col gap-3 md:gap-4">
-              <h4 className="text-xs font-bold uppercase tracking-widest text-black dark:text-zinc-200">Legal</h4>
+              <h3 className="text-xs font-bold uppercase tracking-widest text-black dark:text-zinc-200">Legal</h3>
               <a href="#" className="text-sm text-zinc-700 dark:text-zinc-400 hover:text-black dark:hover:text-neon-lime transition-colors">Privacy</a>
               <a href="#" className="text-sm text-zinc-700 dark:text-zinc-400 hover:text-black dark:hover:text-neon-lime transition-colors">Terms</a>
               <a href="#" className="text-sm text-zinc-700 dark:text-zinc-400 hover:text-black dark:hover:text-neon-lime transition-colors">Cookies</a>
@@ -28,7 +28,7 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-3 md:gap-4">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-black dark:text-zinc-200">Connect</h4>
+            <h3 className="text-xs font-bold uppercase tracking-widest text-black dark:text-zinc-200">Connect</h3>
             <div className="flex flex-wrap items-center gap-3">
               <a href="#" aria-label="LinkedIn" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-zinc-400 hover:bg-black dark:hover:bg-neon-lime hover:text-white dark:hover:text-black active:bg-black dark:active:bg-neon-lime active:text-white dark:active:text-black transition-all">
                 <Linkedin className="w-4 h-4 md:w-5 md:h-5" />

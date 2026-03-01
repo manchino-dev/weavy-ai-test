@@ -24,7 +24,7 @@ export function LogoTicker() {
   return (
     <section className="py-12 border-y border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 overflow-hidden transition-colors">
       <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
-        <p className="text-[10px] font-bold font-mono text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.2em]">Trusted by industry leaders</p>
+        <p className="text-[10px] font-bold font-mono text-zinc-600 dark:text-zinc-400 uppercase tracking-[0.2em]">Trusted by industry leaders</p>
       </div>
 
       <div className="relative flex overflow-hidden mask-linear-fade">

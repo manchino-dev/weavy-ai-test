@@ -89,7 +89,7 @@ export function ContactForm() {
                       name="name"
                       type="text"
                       required
-                      className="w-full h-12 px-4 rounded-lg bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-neon-lime focus:ring-[3px] focus:ring-black/50 dark:focus:ring-neon-lime/50 transition-all placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-base"
+                      className="w-full h-12 px-4 rounded-lg bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-neon-lime focus:ring-[3px] focus:ring-black/50 dark:focus:ring-neon-lime/50 transition-all placeholder:text-zinc-500 dark:placeholder:text-zinc-400 text-base"
                       placeholder="Jane Doe"
                     />
                   </div>
@@ -100,7 +100,7 @@ export function ContactForm() {
                       name="email"
                       type="email"
                       required
-                      className="w-full h-12 px-4 rounded-lg bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-neon-lime focus:ring-[3px] focus:ring-black/50 dark:focus:ring-neon-lime/50 transition-all placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-base"
+                      className="w-full h-12 px-4 rounded-lg bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-neon-lime focus:ring-[3px] focus:ring-black/50 dark:focus:ring-neon-lime/50 transition-all placeholder:text-zinc-500 dark:placeholder:text-zinc-400 text-base"
                       placeholder="jane@example.com"
                     />
                   </div>
@@ -112,7 +112,7 @@ export function ContactForm() {
                     id="message"
                     name="message"
                     rows={3}
-                    className="w-full p-4 rounded-lg bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-neon-lime focus:ring-[3px] focus:ring-black/50 dark:focus:ring-neon-lime/50 transition-all resize-none placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-base"
+                    className="w-full p-4 rounded-lg bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-neon-lime focus:ring-[3px] focus:ring-black/50 dark:focus:ring-neon-lime/50 transition-all resize-none placeholder:text-zinc-500 dark:placeholder:text-zinc-400 text-base"
                     placeholder="Tell us about your use case..."
                   />
                 </div>
