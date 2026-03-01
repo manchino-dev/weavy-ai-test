@@ -8,6 +8,7 @@ const Solutions = React.lazy(() => import("@/components/Solutions").then(m => ({
 const Testimonials = React.lazy(() => import("@/components/Testimonials").then(m => ({ default: m.Testimonials })));
 const ContactForm = React.lazy(() => import("@/components/ContactForm").then(m => ({ default: m.ContactForm })));
 const LogoTicker = React.lazy(() => import("@/components/LogoTicker").then(m => ({ default: m.LogoTicker })));
+const IntegrationTicker = React.lazy(() => import("@/components/IntegrationTicker").then(m => ({ default: m.IntegrationTicker })));
 const NodePlayground = React.lazy(() =>
   import("@/components/NodePlayground").then((m) => ({ default: m.NodePlayground }))
 );
@@ -62,6 +63,10 @@ export default function App() {
 
         <Suspense fallback={<SectionFallback text="Loading partners…" />}>
           <LogoTicker />
+        </Suspense>
+
+        <Suspense fallback={<div className="h-16 bg-zinc-950 animate-pulse" />}>
+          <IntegrationTicker />
         </Suspense>
       </main>
 

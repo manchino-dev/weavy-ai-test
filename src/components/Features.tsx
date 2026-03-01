@@ -4,7 +4,7 @@ import { Brain, Share2, Shield, Zap } from "lucide-react";
 const features = [
   { title: "Real-time Collaboration", description: "Work together with your team in real-time. Changes sync instantly across all devices.", icon: Share2, img: "/images/feat-collab.webp" },
   { title: "AI Model Aggregation", description: "Access GPT-4, Claude, Stable Diffusion, and more from a single unified interface.", icon: Brain, img: "/images/feat-ai.webp" },
-  { title: "Node-based Workflow", description: "Visual programming for creatives. Connect nodes to build complex generative pipelines.", icon: Zap, img: "/images/feat-nodes.webp" },
+  { title: "Agentic Workflows", description: "Deploy autonomous AI agents that break down complex tasks, reason through problems, and execute multi-step processes automatically.", icon: Zap, img: "/images/feat-nodes.webp" },
   { title: "Enterprise Security", description: "SOC 2 Type II certified. Your data is encrypted and protected with industry standards.", icon: Shield, img: "/images/feat-security.webp" },
 ];
 
