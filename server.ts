@@ -43,7 +43,7 @@ async function startServer() {
             // 5. Schema Validation: Parse and sanitize the input
             const parsedData = leadSchema.parse(req.body);
             console.log(`[LEAD CAPTURE] Received - Name: ${parsedData.name}, Email: ${parsedData.email}`);
-            const result = await handleLeadCapture(req.body);
+            const result = await handleLeadCapture(parsedData);
             console.log('[LEAD CAPTURE] Successfully written to database:', result.data);
             res.json(result);
         } catch (error) {

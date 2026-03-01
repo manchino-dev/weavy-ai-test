@@ -19,8 +19,7 @@ export async function handleReset() {
     return { success: true, message: 'Table cleared' };
 }
 
-export async function handleLeadCapture(body: unknown) {
-    const parsedData = leadSchema.parse(body);
+export async function handleLeadCapture(parsedData: z.infer<typeof leadSchema>) {
     const { data, error } = await supabase
         .from('leads')
         .insert([parsedData])
