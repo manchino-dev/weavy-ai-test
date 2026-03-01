@@ -18,7 +18,7 @@ function SectionFallback({ text = "Loading…" }: { text?: string }) {
     <section className="py-20 bg-zinc-50 dark:bg-zinc-950 transition-colors">
       <div className="max-w-7xl mx-auto px-6 text-center">
         <div className="h-64 rounded-3xl bg-zinc-100 dark:bg-zinc-900 animate-pulse flex items-center justify-center">
-          <p className="text-zinc-400 dark:text-zinc-600 text-sm">{text}</p>
+          <p className="text-zinc-600 dark:text-zinc-400 text-sm">{text}</p>
         </div>
       </div>
     </section>
@@ -30,7 +30,7 @@ function NodePlaygroundFallback() {
     <section className="py-32 bg-zinc-100/50 dark:bg-zinc-900/50 transition-colors">
       <div className="max-w-[1920px] mx-auto px-6 text-center">
         <div className="h-[500px] rounded-3xl bg-zinc-100 dark:bg-zinc-900 animate-pulse flex items-center justify-center">
-          <p className="text-zinc-400 dark:text-zinc-600 text-sm">Loading playground…</p>
+          <p className="text-zinc-600 dark:text-zinc-400 text-sm">Loading playground…</p>
         </div>
       </div>
     </section>
